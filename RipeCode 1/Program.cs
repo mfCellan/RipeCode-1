@@ -7,26 +7,31 @@ namespace RipeCode_1
     {
         static void Main(string[] args)
         {
+            #region Reading raw data 
             Console.Write("Enter length of array: ");
             var len = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Enter the length of the subsequence: ");
             var subLen = Convert.ToInt32(Console.ReadLine());
+
             if (subLen > len)
             {
                 Console.Write("Invalid Subsequence Size");
                 Console.ReadKey();
                 return;
             }
-            int[] array = new int[len];
-            Console.WriteLine($"Enter enter {len} array elements: ");
 
+            int[] array = new int[len];
+
+            Console.WriteLine($"Enter enter {len} array elements: ");
             for (var i = 0; i < len; i++)
             {
                 Console.Write($"Enter a[{i}]: ");
                 array[i] = Convert.ToInt32(Console.ReadLine());
             }
+            #endregion
 
+            #region Finding the largest sum
             int max = 0, sum = 0; ;
             bool firstSum = true;
             for (var i = 0; i < len - subLen; i++)
@@ -43,6 +48,8 @@ namespace RipeCode_1
                 }
                 sum = 0;
             }
+            #endregion
+
             Console.Write($"Largest sum of subsequence: {max}");
 
         }
